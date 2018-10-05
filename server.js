@@ -28,9 +28,11 @@ app.set('view engine', 'handlebars');
 
 mongoose.Promise = Promise;
 
+const db = process.env.MONGO_URL;
+
 mongoose
   .connect(
-    process.env.DB_HOST,
+    db,
     { useNewUrlParser: true }
   )
   .then(() => console.log('Connected to MongoDB'))

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary py-3">
+  <a href="/" class="navbar-brand">Mongo Scraper</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="home nav-item {{#if home}}
+      active
+      {{/if}}">
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="saved nav-item {{#if saved}}
+      active
+      {{/if}}">
+        <a class="nav-link" href="/saved">Saved Articles<span</span> </a> </li> {{#if home}} <button class="scrape btn btn-sm btn-danger ml-md-3">SCRAPE
+            NEW ARTICLES!</button>
+            {{/if}}
+            <button class="clear btn btn-sm btn-danger ml-md-3">CLEAR NEW ARTICLES!</button>
+    </ul>
+  </div>
+</nav>
