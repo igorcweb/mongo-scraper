@@ -33,6 +33,13 @@
   font-size: 1.5rem !important;
 }
 
+.footer p {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 }
