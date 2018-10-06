@@ -1,3 +1,16 @@
+body {
+  background-image: url('/assets/images/lghtmesh.png');
+}
+
+a {
+  text-decoration: none !important;
+  width: fit-content;
+}
+
+.alert {
+  background-color: orange;
+}
+
 .btn-danger:hover {
   background-color: green;
   border-color: green;
@@ -33,15 +46,33 @@
   font-size: 1.5rem !important;
 }
 
-.footer p {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.card {
+  box-shadow: 3px 3px 20px lightslategray;
+  border-radius: 0;
+  margin: 20px 0;
+}
+
+.btn.save {
+  margin-top: 15px;
+}
+
+.card .btn:focus {
+  border: 2px solid transparent;
+}
+
+.content {
+  min-height: calc(100vh - 40px);
+}
+
+.footer {
+  height: 40px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  .btn.save {
+    margin-top: 0;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
