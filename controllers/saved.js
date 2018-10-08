@@ -8,6 +8,12 @@ router.post('/:id', (req, res) => {
     .then(() => res.send('saved'))
     .catch(err => console.log(err));
 });
+router.post('/remove/:id', (req, res) => {
+  const id = req.params.id;
+  db.Article.findByIdAndUpdate({ _id: id }, { $set: { saved: false } })
+    .then(() => res.send('removed'))
+    .catch(err => console.log(err));
+});
 
 router.get('/', (req, res) => {
   db.Article.find({ saved: true })

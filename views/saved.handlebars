@@ -2,12 +2,12 @@
   {{#if articles}}
   {{#each articles}}
   <div class="card">
-    <div class="card-header bg-primary">
-      <h3 class="mt-1"><a href="{{link}}" class="article-link text-white" target="_blank">{{title}}</a>
-        <button class="btn btn-danger remove d-block" data-id="{{_id}}">Remove from Saved</button>
+    <div class="card-header bg-primary d-flex flex-wrap">
+      <h3 class="mt-1 saved"><a href="{{link}}" class="article-link text-white" target="_blank">{{title}}</a>
       </h3>
-      <button class="btn btn-purple notes float-right" data-id="{{_id}}">Article Notes</button>
-      </h3>
+      <button class="btn btn-sm btn-danger remove d-block mr-2" data-id="{{_id}}">REMOVED FROM SAVED</button>
+      <button class="btn btn-sm btn-purple notes" data-id="{{_id}}">ARTICLE NOTES</button>
+
     </div>
     <div class="card-body">
       {{description}}

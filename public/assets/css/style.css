@@ -11,8 +11,8 @@ a {
   background-color: orange;
 }
 
-.btn.scrape:hover,
-.btn.clear:hover {
+nav .btn.scrape:hover,
+nav .btn.clear:hover {
   background-color: green;
   border-color: green;
   outline-color: green;
@@ -83,12 +83,19 @@ a {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  h3.saved {
+    max-width: 600px;
+  }
   .btn.remove,
   .btn.notes {
-    display: inline !important;
+    margin-top: 6px;
+    max-height: 34px;
+  }
+  .btn.remove {
+    margin-left: auto;
   }
   .btn.save {
-    margin-top: 0;
+    margin-top: 4px;
   }
 }
 

@@ -15,3 +15,9 @@ $('.save').on('click', function() {
     location.reload();
   });
 });
+
+$('.remove').on('click', function() {
+  $.post('/saved/remove/' + $(this).data('id')).then(() => {
+    location.reload();
+  });
+});
