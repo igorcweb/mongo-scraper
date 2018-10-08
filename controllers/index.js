@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
-const cheerio = require('cheerio');
-const url = 'https://www.nytimes.com';
+const db = require('../models');
 
 router.get('/', (req, res) => {
-  res.render('index', { home: true });
+  db.Article.find({})
+    .then(articles => {
+      console.log(articles);
+      res.render('index', { home: true, articles });
+    })
+    .catch(err => res.json({ error: err }));
 });
-
-const db = require('../models');
 
 module.exports = router;

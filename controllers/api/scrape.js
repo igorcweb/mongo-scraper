@@ -6,7 +6,6 @@ const url = 'https://www.nytimes.com';
 const db = require('../../models');
 
 router.get('/', (req, res) => {
-  // const result = [];
   axios
     .get(url)
     .then(response => {
@@ -27,11 +26,16 @@ router.get('/', (req, res) => {
           .text();
         const { title, link, description } = article;
         if (title && link && description) {
-          db.Article.create(article)
-            .then(dbArticle => {
-              console.log(dbArticle);
-            })
-            .catch(err => res.json({ createError: err }));
+          //Check if article is already scraped
+          db.Article.findOne({ title }).then(data => {
+            if (!data) {
+              db.Article.create(article)
+                .then(dbArticle => {
+                  console.log(dbArticle);
+                })
+                .catch(err => res.json({ createError: err }));
+            }
+          });
         }
       });
       res.send('scraped');
