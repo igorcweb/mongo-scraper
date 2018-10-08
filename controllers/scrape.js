@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const url = 'https://www.nytimes.com';
 const db = require('../models');
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   axios
     .get(url)
     .then(response => {

@@ -11,9 +11,11 @@ a {
   background-color: orange;
 }
 
-.btn-danger:hover {
+.btn.scrape:hover,
+.btn.clear:hover {
   background-color: green;
   border-color: green;
+  outline-color: green;
 }
 
 .jumbotron {
@@ -55,6 +57,16 @@ a {
 
 .btn.save {
   margin-top: 15px;
+  display: block;
+}
+
+.btn.btn-purple {
+  background-color: rgb(184, 3, 184);
+  color: #fff;
+}
+
+.btn.btn-purple:hover {
+  background-color: rgb(155, 1, 155);
 }
 
 .card .btn:focus {
@@ -71,6 +83,10 @@ a {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  .btn.remove,
+  .btn.notes {
+    display: inline !important;
+  }
   .btn.save {
     margin-top: 0;
   }

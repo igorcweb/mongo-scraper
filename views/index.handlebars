@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-header bg-primary">
       <h3 class="mt-1"><a href="{{link}}" class="article-link text-white" target="_blank">{{title}}</a>
-        <button class="btn btn-success save float-sm-right">Save
+        <button class="btn btn-success save float-sm-right" data-id="{{_id}}">Save
           Article</button> </h3>
     </div>
     <div class="card-body">
@@ -21,7 +21,7 @@
     </div>
     <div class="card-body">
       <a class="btn btn-lg scrape text-primary my-0 py-0 d-block mx-auto">Scrape New Articles</a>
-      <a class="btn btn-lg saved text-primary my-0 py-0 d-block mx-auto">Go to Saved Articles</a>
+      <a href="/saved" class="btn btn-lg saved text-primary my-0 py-0 d-block mx-auto">Go to Saved Articles</a>
     </div>
   </div>
   {{/if}}
