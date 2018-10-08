@@ -21,3 +21,8 @@ $('.remove').on('click', function() {
     location.reload();
   });
 });
+
+$('.notes').on('click', function() {
+  $('.modal-title').text($(this).data('title'));
+  console.log($(this).data('title'));
+});

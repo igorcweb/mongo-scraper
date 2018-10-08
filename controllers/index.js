@@ -5,7 +5,6 @@ const db = require('../models');
 router.get('/', (req, res) => {
   db.Article.find({ saved: false })
     .then(articles => {
-      console.log(articles);
       res.render('index', { home: true, articles });
     })
     .catch(err => res.json({ error: err }));

@@ -1,12 +1,36 @@
+<div class="modal fade" id="noteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="noteModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group notes">
+          <li class="list-group-item mb-3 pl-2">No notes for this article yet</li>
+        </ul>
+        <textarea class="form-control" rows="4" id="message-text" placeholder="New Note"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Save Note</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid container-article">
   {{#if articles}}
   {{#each articles}}
   <div class="card">
     <div class="card-header bg-primary d-flex flex-wrap">
-      <h3 class="mt-1 saved"><a href="{{link}}" class="article-link text-white" target="_blank">{{title}}</a>
+      <h3 class="mt-1 saved"><a href="{{link}}" class="article-link text-white mr-2" target="_blank">{{title}}</a>
       </h3>
-      <button class="btn btn-sm btn-danger remove d-block mr-2" data-id="{{_id}}">REMOVED FROM SAVED</button>
-      <button class="btn btn-sm btn-purple notes" data-id="{{_id}}">ARTICLE NOTES</button>
+      <button class="btn btn-sm btn-danger remove d-block mr-2" data-id="{{_id}}">REMOVE FROM SAVED</button>
+      <button type="button" class="btn btn-sm btn-purple notes" data-id="{{_id}}" data-title="{{title}}" data-toggle="modal"
+        data-target="#noteModal">ARTICLE
+        NOTES</button>
 
     </div>
     <div class="card-body">
@@ -15,15 +39,15 @@
   </div>
   {{/each}}
   {{else}}
-  <h4 class="alert text-white text-center py-2">Looks like we don't have any new articles</h4>
+  <h4 class="alert text-white text-center py-2">Looks like we don't have any saved articles</h4>
   <div class="card">
     <div class="card-header bg-primary">
-      <h3 class="mt-1 text-center text-white">What would you like to do?
+      <h3 class="mt-1 text-center text-white">Would you like to browse scraped articles?
       </h3>
     </div>
     <div class="card-body">
-      <a class="btn btn-lg scrape text-primary my-0 py-0 d-block mx-auto">Scrape New Articles</a>
-      <a href="/saved" class="btn btn-lg saved text-primary my-0 py-0 d-block mx-auto">Go to Saved Articles</a>
+
+      <a href="/" class="btn btn-lg saved text-primary my-0 py-0 d-block mx-auto">Browse Articles</a>
     </div>
   </div>
   {{/if}}

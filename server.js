@@ -30,11 +30,12 @@ app.set('view engine', 'handlebars');
 
 mongoose.Promise = Promise;
 
-const db = process.env.MONGO_URL || 'mongodb://localhost/mongo-scraper';
+const MONGODB_URI =
+  process.env.MONGODB_URI || 'mongodb://localhost/mongo-scraper';
 
 mongoose
   .connect(
-    db,
+    MONGODB_URI,
     { useNewUrlParser: true }
   )
   .then(() => console.log('Connected to MongoDB'))

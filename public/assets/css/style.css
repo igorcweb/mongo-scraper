@@ -3,7 +3,6 @@ body {
 }
 
 a {
-  text-decoration: none !important;
   width: fit-content;
 }
 
@@ -81,10 +80,15 @@ nav .btn.clear:hover {
   height: 40px;
 }
 
+ul.notes li {
+  color: #777;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  h3.saved {
-    max-width: 600px;
+  h3.saved,
+  a.article-link {
+    max-width: 500px;
   }
   .btn.remove,
   .btn.notes {
@@ -101,6 +105,10 @@ nav .btn.clear:hover {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  h3.saved,
+  a.article-link {
+    max-width: 500px;
+  }
   .jumbotron .caption h1 {
     font-size: 3rem !important;
   }
@@ -111,6 +119,10 @@ nav .btn.clear:hover {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  h3.saved,
+  a.article-link {
+    max-width: 600px;
+  }
   .jumbotron .caption h1 {
     font-size: 4rem !important;
   }
@@ -121,6 +133,10 @@ nav .btn.clear:hover {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  h3.saved,
+  a.article-link {
+    max-width: 800px;
+  }
 }
 
 @media (max-width: 767px) {
