@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="noteModalLabel">New message</h5>
+        <h5 class="modal-title" id="noteModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -11,11 +11,13 @@
         <ul class="list-group notes">
           <li class="list-group-item mb-3 pl-2">No notes for this article yet</li>
         </ul>
-        <textarea class="form-control" rows="4" id="message-text" placeholder="New Note"></textarea>
+        <form>
+          <textarea class="form-control" rows="4" id="noteText" placeholder="New Note"></textarea>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">Save Note</button>
+        <button type="button" class="btn btn-success save-note">Save Note</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
