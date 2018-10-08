@@ -3,11 +3,8 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  db.Article.find({ saved: false })
-    .then(articles => {
-      console.log(articles);
-      res.render('index', { home: true, articles });
-    })
+  db.Article.remove()
+    .then(() => res.send('cleared'))
     .catch(err => res.json({ error: err }));
 });
 

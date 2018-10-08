@@ -7,7 +7,8 @@ const exphbs = require('express-handlebars');
 const logger = require('morgan');
 const controllers = require('./controllers');
 const saved = require('./controllers/saved.js');
-const scrape = require('./controllers/api/scrape');
+const scrape = require('./controllers/scrape');
+const clear = require('./controllers/clear');
 const mongoose = require('mongoose');
 
 app.use(express.static('public'));
@@ -41,6 +42,7 @@ mongoose
 
 app.use(controllers);
 app.use('/saved', saved);
-app.use('/api/scrape', scrape);
+app.use('/scrape', scrape);
+app.use('/clear', clear);
 
 app.listen(PORT, () => console.log('mongo-scraper is listening on PORT', PORT));

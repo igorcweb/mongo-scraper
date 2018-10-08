@@ -1,5 +1,10 @@
 $('.scrape').on('click', function() {
-  $.get('/api/scrape', () => {
+  $.get('/scrape').then(() => {
+    location.reload();
+  });
+});
+$('.clear').on('click', function() {
+  $.get('/clear').then(() => {
     location.reload();
   });
 });

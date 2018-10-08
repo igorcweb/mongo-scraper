@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
 const url = 'https://www.nytimes.com';
-const db = require('../../models');
+const db = require('../models');
 
 router.get('/', (req, res) => {
   axios
@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
         article.title = $(element)
           .find('h2.esl82me2')
           .text();
-
         article.link =
           url +
           $(this)

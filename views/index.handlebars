@@ -1,6 +1,4 @@
 <div class="container-fluid container-article">
-  <h4 class="alert text-white text-center py-2">Looks like we don't have any new articles</h4>
-
   {{#if articles}}
   {{#each articles}}
   <div class="card">
@@ -15,6 +13,7 @@
   </div>
   {{/each}}
   {{else}}
+  <h4 class="alert text-white text-center py-2">Looks like we don't have any new articles</h4>
   <div class="card">
     <div class="card-header bg-primary">
       <h3 class="mt-1 text-center text-white">What would you like to do?
