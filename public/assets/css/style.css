@@ -21,6 +21,7 @@ a {
   height: 350px;
   background-image: url('/assets/images/newyork.png');
   background-size: cover;
+  background-position: center;
 }
 
 .jumbotron .overlay {

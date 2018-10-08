@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 const logger = require('morgan');
 const controllers = require('./controllers');
 const saved = require('./controllers/saved.js');
+const scrape = require('./controllers/api/scrape');
 const mongoose = require('mongoose');
 
 app.use(express.static('public'));
@@ -28,7 +29,7 @@ app.set('view engine', 'handlebars');
 
 mongoose.Promise = Promise;
 
-const db = process.env.MONGO_URL;
+const db = process.env.MONGO_URL || 'mongodb://localhost/mongo-scraper';
 
 mongoose
   .connect(
@@ -40,5 +41,6 @@ mongoose
 
 app.use(controllers);
 app.use('/saved', saved);
+app.use('/api/scrape', scrape);
 
 app.listen(PORT, () => console.log('mongo-scraper is listening on PORT', PORT));
