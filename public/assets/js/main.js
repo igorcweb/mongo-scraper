@@ -41,6 +41,10 @@ $(document).on('click', '.save-note', function() {
   const id = this.dataset.id;
   const title = this.dataset.title;
   const note = $('#noteText').val();
-
-  $.post('/saved/note/' + id, { note, title });
+  if (note) {
+    $.post('/saved/note/' + id, { note, title });
+    $('#noteText').val('');
+    $('li.no-notes').remove();
+    $('ul.notes').append(`<li class="list-group-item mb-3 pl-2">${note}</li>`);
+  }
 });
