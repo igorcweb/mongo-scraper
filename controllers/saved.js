@@ -17,17 +17,18 @@ router.post('/remove/:id', (req, res) => {
 
 router.get('/', (req, res) => {
   db.Article.find({ saved: true })
-    .then(articles => {
-      console.log(articles);
+    .populate('notes')
+    .exec((err, articles) => {
+      articles.forEach(article => {
+        console.log(article);
+      });
       res.render('saved', { saved: true, articles });
-    })
-    .catch(err => res.json({ error: err }));
+    });
 });
 
 router.post('/note/:id', (req, res) => {
   const note = {};
   note.body = req.body.note;
-  note.title = req.body.title;
   const _id = req.params.id;
   db.Note.create(note)
     .then(dbNote => {
@@ -35,11 +36,19 @@ router.post('/note/:id', (req, res) => {
         .populate('notes')
         .then(article => {
           console.log('article:', article);
+          console.log('note:', dbNote);
+          res.send('note saved');
         })
         .catch(err => console.log(err));
     })
 
     .catch(err => res.json({ createError: err }));
+});
+
+const id = '5bbd884a50415878146d76cc';
+
+db.Article.findById(id).then(result => {
+  console.log(result);
 });
 
 module.exports = router;

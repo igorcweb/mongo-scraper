@@ -42,9 +42,21 @@ $(document).on('click', '.save-note', function() {
   const title = this.dataset.title;
   const note = $('#noteText').val();
   if (note) {
-    $.post('/saved/note/' + id, { note, title });
+    $.post('/saved/note/' + id, { note, title, id });
     $('#noteText').val('');
-    $('li.no-notes').remove();
-    $('ul.notes').append(`<li class="list-group-item mb-3 pl-2">${note}</li>`);
+    $('li.no-notes').addClass('d-none');
+    $('ul.notes').append(
+      `<li class="list-group-item mb-3 pl-2">${note}<i class="fas fa-times" data-id="${id}"></i></li>`
+    );
   }
+});
+
+$('.notes').on('click', '.fa-times', function(e) {
+  e.stopPropagation();
+  console.log($(this).data('id'));
+  const li = $(this).parent();
+  if ($(li).siblings().length === 1) {
+    $('li.no-notes').removeClass('d-none');
+  }
+  $(li).remove();
 });

@@ -76,6 +76,18 @@ nav .btn.clear:hover {
   min-height: calc(100vh - 40px);
 }
 
+.fa-times {
+  position: relative;
+  float: right;
+  top: 4px;
+  color: #d9534f;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.fa-times:hover {
+  color: #d3322c;
+}
+
 .footer {
   height: 40px;
 }
