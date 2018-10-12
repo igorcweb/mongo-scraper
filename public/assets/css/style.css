@@ -20,7 +20,7 @@ nav .btn.clear:hover {
 .jumbotron {
   position: relative;
   height: 350px;
-  background-image: url('/assets/images/newyork.png');
+  background-image: url('/assets/images/newyork.jpg');
   background-size: cover;
   background-position: center;
 }
