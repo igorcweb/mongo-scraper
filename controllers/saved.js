@@ -26,9 +26,6 @@ router.get('/', (req, res) => {
       if (err) {
         throw err;
       }
-      articles.forEach(article => {
-        console.log(article);
-      });
       res.render('saved', { saved: true, articles });
     });
 });
@@ -52,8 +49,6 @@ router.post('/note/:id', (req, res) => {
       db.Article.findOneAndUpdate({ _id }, { $push: { notes: dbNote._id } })
         .populate('notes')
         .then(article => {
-          console.log('article:', article);
-          console.log('note:', dbNote);
           res.send('saved');
         })
         .catch(err => console.log(err));
