@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
+//Saved Articles
 router.post('/:id', (req, res) => {
   const _id = req.params.id;
   db.Article.findByIdAndUpdate({ _id }, { $set: { saved: true } })
     .then(() => res.send('saved'))
     .catch(err => console.log(err));
 });
+
+//Removing from saved
 router.post('/remove/:id', (req, res) => {
   const _id = req.params.id;
   db.Article.findByIdAndUpdate({ _id }, { $set: { saved: false } })
@@ -15,10 +18,14 @@ router.post('/remove/:id', (req, res) => {
     .catch(err => console.log(err));
 });
 
+//Displaying saved articles, populating notes
 router.get('/', (req, res) => {
   db.Article.find({ saved: true })
     .populate('notes')
     .exec((err, articles) => {
+      if (err) {
+        throw err;
+      }
       articles.forEach(article => {
         console.log(article);
       });
@@ -26,6 +33,16 @@ router.get('/', (req, res) => {
     });
 });
 
+//Displaying notes for each article
+router.get('/notes/:id', (req, res) => {
+  const _id = req.params.id;
+  db.Article.findOne({ _id })
+    .populate('notes')
+    .then(article => res.json(article))
+    .catch(err => res.json(err));
+});
+
+//Adding notes to saved articles
 router.post('/note/:id', (req, res) => {
   const note = {};
   note.body = req.body.note;
@@ -37,7 +54,7 @@ router.post('/note/:id', (req, res) => {
         .then(article => {
           console.log('article:', article);
           console.log('note:', dbNote);
-          res.send('note saved');
+          res.send('saved');
         })
         .catch(err => console.log(err));
     })
@@ -45,10 +62,10 @@ router.post('/note/:id', (req, res) => {
     .catch(err => res.json({ createError: err }));
 });
 
-const id = '5bbd884a50415878146d76cc';
-
-db.Article.findById(id).then(result => {
-  console.log(result);
+//Removing notes
+router.get('/note/remove/:id', (req, res) => {
+  const id = req.params.id;
+  db.Note.findOneAndDelete({ _id: id }).then(() => res.send('removed'));
 });
 
 module.exports = router;

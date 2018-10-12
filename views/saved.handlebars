@@ -1,7 +1,8 @@
 <div class="container-fluid container-article">
-  {{>saved/modal-block}}
+
   {{#if articles}}
   {{#each articles}}
+  {{>saved/modal-block}}
   <div class="card">
     <div class="card-header bg-primary d-flex flex-wrap">
       <h3 class="mt-1 saved"><a href="{{link}}" class="article-link text-white mr-2" target="_blank">{{title}}</a>
