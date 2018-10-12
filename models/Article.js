@@ -15,7 +15,6 @@ const ArticleSchema = new Schema({
   },
   saved: {
     type: Boolean,
-    required: true,
     default: false
   },
   notes: [

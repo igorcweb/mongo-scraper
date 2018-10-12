@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
           $(this)
             .find('a')
             .attr('href');
-        article.description = $(this)
+        article.description = $(element)
           .find('p.e1n8kpyg0')
           .text();
         const { title, link, description } = article;
