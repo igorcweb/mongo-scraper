@@ -2,7 +2,7 @@
 $(document).on('click', '.scrape', function() {
   $.post('/scrape')
     .then(() => {
-      location.reload();
+      setTimeout(() => location.reload(), 1000);
     })
     .catch(err => console.log(err));
 });
